@@ -50,3 +50,6 @@ variable "associate_public_ip_address" {
 variable "key_name" {
  default = ""
 }
+variable "ingress_cidr_block" {
+ default = ["0.0.0.0/0"]
+}

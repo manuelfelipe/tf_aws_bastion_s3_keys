@@ -12,7 +12,16 @@ resource "aws_security_group" "bastion" {
     from_port   = 22
     to_port     = 22
     cidr_blocks = [
-      "0.0.0.0/0"
+      "${var.ingress_cidr_block}"
+    ]
+  }
+
+  ingress {
+    protocol    = "icmp"
+    from_port   = 8
+    to_port     = 0
+    cidr_blocks = [
+      "${var.ingress_cidr_block}"
     ]
   }
 
